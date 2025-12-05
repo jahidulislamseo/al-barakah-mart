@@ -1,6 +1,5 @@
-# Al Barakah Mart
-
-Premium organic grocery e-commerce platform built with Next.js 16, Prisma, and NextAuth.
+# Al Barakah Mart 🛒
+> **Premium Organic Grocery Store** - [Live Demo](https://al-barakah-mart.vercel.app/)
 
 ## Features
 
