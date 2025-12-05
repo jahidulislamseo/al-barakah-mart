@@ -1,116 +1,107 @@
 # Al Barakah Mart 🛒
 > **Premium Organic Grocery Store** - [Live Demo](https://al-barakah-mart.vercel.app/)
 
-## Features
+Al Barakah Mart is a full-featured e-commerce platform built with Next.js 16, designed for the Bangladeshi market with bilingual support (English/Bengali).
 
-- 🛒 Full e-commerce functionality (cart, checkout, orders)
-- 👤 User authentication with NextAuth v4
-- 🔐 Admin dashboard for product management
-- 📱 Responsive design with mobile support
-- 💬 WhatsApp live chat integration
-- 🔍 SEO-friendly URLs
-- 🖼️ Image optimization with Next.js Image
-- 📦 Product categories and filtering
+![Al Barakah Mart Banner](/public/images/banner_placeholder.png)
 
-## Tech Stack
+## 🚀 Key Features
 
-- **Framework**: Next.js 16.0.7
-- **Database**: SQLite (development) / PostgreSQL (production)
+- **Storefront**:
+    - 🛍️ Browse products by category (Fruits, Vegetables, Meat, etc.)
+    - 🔍 Real-time search functionality
+    - 🌐 **Bilingual System**: Switch between English and Bengali instantly
+    - 📱 Fully responsive mobile-first design
+
+- **User Experience**:
+    - 🛒 Dynamic Shopping Cart
+    - ❤️ Wishlist functionality
+    - 📦 **Order Tracking**: Visual timeline for order status
+    - 👤 User Dashboard for order history and profile management
+
+- **Checkout & Payment**:
+    - 💳 **Manual Payment Integration**: Support for **bKash**, **Nagad**, and COD
+    - 📝 Detailed payment instructions
+    - 🚚 Delivery address management
+
+- **Admin Power**:
+    - 📊 Comprehensive Admin Dashboard
+    - 📦 Product management (Add/Edit/Delete)
+    - 👥 User management
+    - 📝 Order status updates (Pending -> Delivered)
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: TypeScript
+- **Database**: MongoDB Atlas
 - **ORM**: Prisma
-- **Authentication**: NextAuth v4
+- **Auth**: NextAuth.js v4
 - **Styling**: Tailwind CSS
-- **UI Components**: Custom components
-- **Image Upload**: Cloudinary (optional)
+- **Icons**: Lucide React
+- **Hosting**: Vercel
 
-## Getting Started
+## ⚙️ Getting Started
 
 ### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18+
+- MongoDB Database URL
 
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone <your-repo-url>
-cd al-barakah-mart
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/jahidulislamseo/al-barakah-mart.git
+   cd al-barakah-mart
+   ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+   *Note: Uses `legacy-peer-deps` automatically via `.npmrc`*
 
-3. Set up environment variables:
-Create a `.env.local` file in the root directory:
-```env
-# Database
-DATABASE_URL="file:./dev.db"
+3. **Set up environment variables:**
+   Create `.env` file:
+   ```env
+   DATABASE_URL="mongodb+srv://..."
+   NEXTAUTH_SECRET="your-secret"
+   NEXTAUTH_URL="http://localhost:3000"
+   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="..."
+   CLOUDINARY_API_KEY="..."
+   CLOUDINARY_API_SECRET="..."
+   ```
 
-# NextAuth
-NEXTAUTH_SECRET="your-secret-key-min-32-characters"
-NEXTAUTH_URL="http://localhost:3000"
+4. **Initialize Database:**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   npx tsx prisma/seed-users.ts
+   ```
 
-# Cloudinary (optional)
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
-CLOUDINARY_API_KEY="your_api_key"
-CLOUDINARY_API_SECRET="your_api_secret"
-```
+5. **Run Locally:**
+   ```bash
+   npm run dev
+   ```
 
-4. Set up the database:
-```bash
-npx prisma generate
-npx prisma db push
-npx tsx prisma/seed-bengali-products.ts
-```
+## 📦 Deployment (Vercel)
 
-5. Run the development server:
-```bash
-npm run dev
-```
+This project is optimized for Vercel deployment.
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+1. **Push to GitHub.**
+2. **Import in Vercel.**
+3. **Environment Variables:** Add all variables from `.env`.
+4. **Build Command:** The project uses a custom build script to ensure Prisma generation:
+   ```json
+   "build": "prisma generate && next build"
+   ```
+   *No extra configuration needed!*
 
-## Deployment
+## 📞 Contact & Support
 
-### Vercel Deployment
+For any inquiries or support:
+- **Phone / WhatsApp**: [+880 1609132361](https://wa.me/8801609132361)
+- **Email**: [opjahidulislam@gmail.com](mailto:opjahidulislam@gmail.com)
 
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Add environment variables in Vercel dashboard
-4. Deploy!
-
-For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
-
-## Default Credentials
-
-After seeding the database:
-
-- **Admin**: admin@albarakah.com / admin123
-- **User**: user@albarakah.com / user123
-
-## Project Structure
-
-```
-al-barakah-mart/
-├── app/                    # Next.js app directory
-│   ├── admin/             # Admin dashboard
-│   ├── api/               # API routes
-│   ├── dashboard/         # User dashboard
-│   ├── product/           # Product pages
-│   └── ...
-├── components/            # React components
-├── lib/                   # Utility functions
-├── prisma/                # Database schema and seeds
-├── public/                # Static assets
-└── pages/                 # Pages Router (NextAuth)
-```
-
-## License
-
-MIT
-
-## Support
-
-For support, contact via WhatsApp: 01609132361
+---
+© 2025 Al Barakah Mart. All rights reserved.
