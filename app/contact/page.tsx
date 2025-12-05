@@ -54,8 +54,7 @@ export default function ContactPage() {
                             <div>
                                 <h3 className="font-semibold mb-1">Call Us</h3>
                                 <p className="text-muted-foreground">
-                                    +880 1234 567890<br />
-                                    +880 9876 543210
+                                    +880 1609132361
                                 </p>
                             </div>
                         </div>
@@ -67,8 +66,7 @@ export default function ContactPage() {
                             <div>
                                 <h3 className="font-semibold mb-1">Email Us</h3>
                                 <p className="text-muted-foreground">
-                                    support@albarakah.com<br />
-                                    info@albarakah.com
+                                    opjahidulislam@gmail.com
                                 </p>
                             </div>
                         </div>
