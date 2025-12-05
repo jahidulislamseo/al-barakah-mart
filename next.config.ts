@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   experimental: {
-    serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
+    // serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
   },
 };
 

@@ -1,6 +1,6 @@
 import { v2 as cloudinary } from 'cloudinary';
 import { NextResponse } from 'next/server';
-import { auth } from '@/auth';
+import { getSession } from '@/lib/auth';
 
 cloudinary.config({
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -9,7 +9,7 @@ cloudinary.config({
 });
 
 export async function POST(request: Request) {
-    const session = await auth();
+    const session = await getSession();
 
     if (!session || session.user?.role !== 'admin') {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
