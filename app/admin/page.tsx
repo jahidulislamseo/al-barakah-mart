@@ -1,99 +1,60 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
-import { Package, ShoppingBag, Users, DollarSign } from 'lucide-react'
+import { prisma } from '@/lib/prisma'
+import { DollarSign, ShoppingBag, Package, Users } from 'lucide-react'
 
-export default function AdminDashboard() {
+async function getStats() {
+    const totalOrders = await prisma.order.count()
+    const totalProducts = await prisma.product.count()
+    const totalUsers = await prisma.user.count()
+
+    const orders = await prisma.order.findMany({
+        select: { total: true }
+    })
+    const totalSales = orders.reduce((acc, order) => acc + order.total, 0)
+
+    return {
+        totalOrders,
+        totalProducts,
+        totalUsers,
+        totalSales
+    }
+}
+
+export default async function AdminDashboard() {
+    const stats = await getStats()
+
     return (
-        <div className="space-y-8">
-            <div>
-                <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
-                <p className="text-muted-foreground">Overview of your store's performance.</p>
-            </div>
+        <div className="space-y-6">
+            <h1 className="text-2xl font-bold">Dashboard Overview</h1>
 
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-white p-6 rounded-lg border shadow-sm">
+                    <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-muted-foreground">Total Sales</h3>
                         <DollarSign className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">৳45,231</div>
-                        <p className="text-xs text-muted-foreground">+20.1% from last month</p>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Orders</CardTitle>
+                    </div>
+                    <div className="text-2xl font-bold">৳{stats.totalSales.toLocaleString()}</div>
+                </div>
+                <div className="bg-white p-6 rounded-lg border shadow-sm">
+                    <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-muted-foreground">Total Orders</h3>
                         <ShoppingBag className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">+573</div>
-                        <p className="text-xs text-muted-foreground">+201 since last hour</p>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Products</CardTitle>
+                    </div>
+                    <div className="text-2xl font-bold">{stats.totalOrders}</div>
+                </div>
+                <div className="bg-white p-6 rounded-lg border shadow-sm">
+                    <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-muted-foreground">Total Products</h3>
                         <Package className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">124</div>
-                        <p className="text-xs text-muted-foreground">+4 new products today</p>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Active Customers</CardTitle>
+                    </div>
+                    <div className="text-2xl font-bold">{stats.totalProducts}</div>
+                </div>
+                <div className="bg-white p-6 rounded-lg border shadow-sm">
+                    <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-sm font-medium text-muted-foreground">Total Users</h3>
                         <Users className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">2,350</div>
-                        <p className="text-xs text-muted-foreground">+180 new this week</p>
-                    </CardContent>
-                </Card>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                <Card className="col-span-4">
-                    <CardHeader>
-                        <CardTitle>Recent Orders</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="space-y-4">
-                            {[1, 2, 3, 4, 5].map((i) => (
-                                <div key={i} className="flex items-center">
-                                    <div className="h-9 w-9 rounded-full bg-muted/50 flex items-center justify-center font-bold text-xs">U{i}</div>
-                                    <div className="ml-4 space-y-1">
-                                        <p className="text-sm font-medium leading-none">User {i}</p>
-                                        <p className="text-xs text-muted-foreground">user{i}@example.com</p>
-                                    </div>
-                                    <div className="ml-auto font-medium">+৳{(i * 150) + 50}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="col-span-3">
-                    <CardHeader>
-                        <CardTitle>Top Products</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="space-y-4">
-                            <div className="flex items-center">
-                                <div className="font-medium text-sm">Fresh Organic Apples</div>
-                                <div className="ml-auto text-sm text-green-600 font-bold">120 Sold</div>
-                            </div>
-                            <div className="flex items-center">
-                                <div className="font-medium text-sm">Premium Beef Cuts</div>
-                                <div className="ml-auto text-sm text-green-600 font-bold">85 Sold</div>
-                            </div>
-                            <div className="flex items-center">
-                                <div className="font-medium text-sm">Soybean Oil 5L</div>
-                                <div className="ml-auto text-sm text-green-600 font-bold">76 Sold</div>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
+                    </div>
+                    <div className="text-2xl font-bold">{stats.totalUsers}</div>
+                </div>
             </div>
         </div>
     )

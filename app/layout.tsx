@@ -4,6 +4,7 @@ import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Providers } from '@/components/providers'
+import { WhatsAppButton } from '@/components/WhatsAppButton'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -16,8 +17,15 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Al Barakah Mart | Premium Online Grocery',
-  description: 'Fresh products, fast delivery, and premium service in Bangladesh.',
+  title: "Al Barakah Mart | Premium Organic Grocery",
+  description: "Your one-stop shop for fresh organic fruits, vegetables, meat, and daily essentials. Fast delivery across Dhaka.",
+  openGraph: {
+    title: "Al Barakah Mart | Premium Organic Grocery",
+    description: "Fresh organic groceries delivered to your doorstep.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Al Barakah Mart"
+  }
 }
 
 export default function RootLayout({
@@ -36,6 +44,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <WhatsAppButton />
         </Providers>
       </body>
     </html>

@@ -1,60 +1,56 @@
-'use client'
-
 import Link from 'next/link'
-import { LayoutDashboard, Package, ShoppingBag, Users, Settings, LogOut } from 'lucide-react'
-import { usePathname } from 'next/navigation'
-import { Button } from '@/components/ui/Button'
-import { clsx } from 'clsx'
+import { LayoutDashboard, Package, ShoppingBag, Users, LogOut } from 'lucide-react'
+import { getSession } from '@/lib/auth'
+import { redirect } from 'next/navigation'
 
-const navItems = [
-    { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
-    { href: '/admin/orders', label: 'Orders', icon: ShoppingBag },
-    { href: '/admin/products', label: 'Products', icon: Package },
-    { href: '/admin/customers', label: 'Customers', icon: Users },
-    { href: '/admin/settings', label: 'Settings', icon: Settings },
-]
+export const dynamic = 'force-dynamic'
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-    const pathname = usePathname()
+export default async function AdminLayout({
+    children,
+}: {
+    children: React.ReactNode
+}) {
+    // Server-side session check removed to avoid loop. 
+    // Middleware handles protection.
 
     return (
-        <div className="flex h-screen bg-muted/40 font-sans">
-            {/* Sidebar */}
-            <aside className="hidden w-64 border-r bg-card md:block">
-                <div className="flex h-16 items-center border-b px-6">
-                    <Link href="/admin" className="flex items-center gap-2 font-bold text-lg text-primary">
-                        <span>Admin Panel</span>
-                    </Link>
-                </div>
-                <nav className="flex flex-col gap-1 p-4">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={clsx(
-                                "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:text-primary",
-                                pathname === item.href ? "bg-primary/10 text-primary" : "text-muted-foreground"
-                            )}
-                        >
-                            <item.icon className="h-4 w-4" />
-                            {item.label}
-                        </Link>
-                    ))}
-                </nav>
-                <div className="mt-auto p-4 border-t">
-                    <Button variant="ghost" className="w-full justify-start gap-2 text-red-500 hover:text-red-600">
-                        <LogOut className="h-4 w-4" />
-                        Logout
-                    </Button>
-                </div>
-            </aside>
+        <div className="container mx-auto px-4 py-8">
+            <div className="flex flex-col md:flex-row gap-8">
+                {/* Sidebar */}
+                <aside className="w-full md:w-64 shrink-0">
+                    <div className="bg-white rounded-lg border p-4">
+                        <div className="mb-6 px-2">
+                            <p className="font-bold text-lg">Admin Panel</p>
+                            <p className="text-xs text-muted-foreground">Manage your store</p>
+                        </div>
 
-            {/* Main Content */}
-            <main className="flex-1 overflow-y-auto">
-                <div className="p-8">
+                        <nav className="space-y-1">
+                            <Link href="/admin" className="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-muted">
+                                <LayoutDashboard className="h-4 w-4" /> Dashboard
+                            </Link>
+                            <Link href="/admin/products" className="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-muted">
+                                <Package className="h-4 w-4" /> Products
+                            </Link>
+                            <Link href="/admin/orders" className="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-muted">
+                                <ShoppingBag className="h-4 w-4" /> Orders
+                            </Link>
+                            <Link href="/admin/users" className="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-muted">
+                                <Users className="h-4 w-4" /> Users
+                            </Link>
+                            <form action="/api/auth/signout" method="POST" className="mt-4 pt-4 border-t">
+                                <button className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md text-red-500 hover:bg-red-50">
+                                    <LogOut className="h-4 w-4" /> Logout
+                                </button>
+                            </form>
+                        </nav>
+                    </div>
+                </aside>
+
+                {/* Main Content */}
+                <main className="flex-1">
                     {children}
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
     )
 }

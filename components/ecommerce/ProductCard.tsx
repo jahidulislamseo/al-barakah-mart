@@ -35,17 +35,29 @@ export function ProductCard({ product }: ProductCardProps) {
             </button>
 
             {/* Image Area */}
-            <Link href={`/product/${product.id}`}>
-                <div className="aspect-square relative bg-muted/20">
-                    <div className="absolute inset-0 flex items-center justify-center text-4xl bg-gray-100 text-gray-300">
-                        📦
-                    </div>
+            <Link href={`/product/${product.slug}`}>
+                <div className="aspect-square relative bg-muted/20 overflow-hidden">
+                    {product.image ? (
+                        <Image
+                            src={product.image}
+                            alt={product.title}
+                            fill
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                    ) : (
+                        <div className="absolute inset-0 flex items-center justify-center text-4xl bg-gray-100 text-gray-300">
+                            📦
+                        </div>
+                    )}
                 </div>
             </Link>
 
             <CardContent className="p-4">
-                <div className="text-sm text-muted-foreground mb-1">{product.category}</div>
-                <Link href={`/product/${product.id}`}>
+                <div className="text-sm text-muted-foreground mb-1">
+                    {typeof product.category === 'object' ? (product.category as any)?.name : product.category}
+                </div>
+                <Link href={`/product/${product.slug}`}>
                     <h3 className="font-semibold truncate group-hover:text-primary transition-colors">{product.title}</h3>
                 </Link>
 
@@ -53,7 +65,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 <div className="flex items-center gap-1 mt-1 mb-2">
                     <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                     <span className="text-xs font-medium">{product.rating}</span>
-                    <span className="text-xs text-muted-foreground">({product.reviews})</span>
+                    <span className="text-xs text-muted-foreground">({(product as any).reviewsCount || (product as any).reviews || 0})</span>
                 </div>
 
                 {/* Price */}

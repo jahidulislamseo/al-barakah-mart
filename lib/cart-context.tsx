@@ -21,9 +21,11 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export function CartProvider({ children }: { children: ReactNode }) {
     const [items, setItems] = useState<CartItem[]>([])
+    const [isMounted, setIsMounted] = useState(false)
 
     // Load from local storage on mount
     useEffect(() => {
+        setIsMounted(true)
         const saved = localStorage.getItem('cart')
         if (saved) {
             try {
@@ -36,8 +38,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     // Save to local storage on change
     useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(items))
-    }, [items])
+        if (isMounted) {
+            localStorage.setItem('cart', JSON.stringify(items))
+        }
+    }, [items, isMounted])
+
+    // Prevent hydration mismatch
+    if (!isMounted) {
+        return (
+            <CartContext.Provider value={{ items: [], addItem: () => { }, removeItem: () => { }, updateQuantity: () => { }, clearCart: () => { }, cartTotal: 0, cartCount: 0 }}>
+                {children}
+            </CartContext.Provider>
+        )
+    }
 
     const addItem = (product: Product, quantity = 1) => {
         setItems(current => {

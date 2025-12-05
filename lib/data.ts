@@ -1,6 +1,7 @@
 export interface Product {
     id: string
     title: string
+    slug: string
     price: number
     originalPrice?: number
     image: string
@@ -25,6 +26,7 @@ export const PRODUCTS: Product[] = [
     {
         id: '1',
         title: 'Fresh Organic Apples',
+        slug: 'fresh-organic-apples',
         price: 250,
         originalPrice: 300,
         image: '/placeholder-apple.png',
@@ -37,6 +39,7 @@ export const PRODUCTS: Product[] = [
     {
         id: '2',
         title: 'Premium Beef Cuts (1kg)',
+        slug: 'premium-beef-cuts-1kg',
         price: 850,
         image: '/placeholder-beef.png',
         category: 'Meat & Fish',
@@ -48,6 +51,7 @@ export const PRODUCTS: Product[] = [
     {
         id: '3',
         title: 'Soybean Oil (5L)',
+        slug: 'soybean-oil-5l',
         price: 900,
         originalPrice: 950,
         image: '/placeholder-oil.png',
@@ -60,6 +64,7 @@ export const PRODUCTS: Product[] = [
     {
         id: '4',
         title: 'Mila Skimmed Milk',
+        slug: 'mila-skimmed-milk',
         price: 90,
         image: '/placeholder-milk.png',
         category: 'Dairy',
@@ -70,6 +75,7 @@ export const PRODUCTS: Product[] = [
     {
         id: '5',
         title: 'Pringles Original',
+        slug: 'pringles-original',
         price: 220,
         image: '/placeholder-chips.png',
         category: 'Snacks',
@@ -80,6 +86,7 @@ export const PRODUCTS: Product[] = [
     {
         id: '6',
         title: 'Dove Moisture Shampoo',
+        slug: 'dove-moisture-shampoo',
         price: 450,
         image: '/placeholder-shampoo.png',
         category: 'Personal Care',

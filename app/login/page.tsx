@@ -1,13 +1,52 @@
 'use client'
 
-import { useActionState } from 'react'
-import { authenticate } from '@/lib/actions'
+import { useState } from 'react'
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import Link from 'next/link'
 
 export default function LoginPage() {
-    const [errorMessage, dispatch, isPending] = useActionState(authenticate, undefined)
+    const router = useRouter()
+    const [error, setError] = useState<string | null>(null)
+    const [loading, setLoading] = useState(false)
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setError(null)
+        setLoading(true)
+
+        const formData = new FormData(e.currentTarget)
+        const email = formData.get('email') as string
+        const password = formData.get('password') as string
+
+        try {
+            const result = await signIn('credentials', {
+                email,
+                password,
+                redirect: false,
+            })
+
+            if (result?.error) {
+                if (result.error === 'CredentialsSignin') {
+                    setError('Invalid email or password')
+                } else {
+                    setError('Authentication failed: ' + result.error)
+                }
+                setLoading(false)
+            } else if (!result?.ok) {
+                setError('Login failed. Please try again.')
+                setLoading(false)
+            } else {
+                router.push('/dashboard')
+                router.refresh()
+            }
+        } catch (error) {
+            setError('Something went wrong. Please try again.')
+            setLoading(false)
+        }
+    }
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
@@ -17,7 +56,7 @@ export default function LoginPage() {
                         Sign in to your account
                     </h2>
                 </div>
-                <form action={dispatch} className="mt-8 space-y-6">
+                <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                     <div className="-space-y-px rounded-md shadow-sm">
                         <div className="mb-4">
                             <label htmlFor="email-address" className="sr-only">
@@ -59,9 +98,9 @@ export default function LoginPage() {
                         <Button
                             type="submit"
                             className="w-full"
-                            disabled={isPending}
+                            disabled={loading}
                         >
-                            {isPending ? 'Signing in...' : 'Sign in'}
+                            {loading ? 'Signing in...' : 'Sign in'}
                         </Button>
                     </div>
                     <div
@@ -69,8 +108,8 @@ export default function LoginPage() {
                         aria-live="polite"
                         aria-atomic="true"
                     >
-                        {errorMessage && (
-                            <p className="text-sm text-red-500">{errorMessage}</p>
+                        {error && (
+                            <p className="text-sm text-red-500">{error}</p>
                         )}
                     </div>
                 </form>

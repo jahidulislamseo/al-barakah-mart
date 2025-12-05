@@ -9,6 +9,7 @@
     },
     "include": [
         "prisma/seed.ts",
+        "prisma/seed-admin.ts",
         "lib/data.ts"
     ]
 }

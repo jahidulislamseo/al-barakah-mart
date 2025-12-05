@@ -1,13 +1,57 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useState } from 'react'
 import { register } from '@/lib/actions'
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import Link from 'next/link'
 
 export default function RegisterPage() {
-    const [errorMessage, dispatch, isPending] = useActionState(register, undefined)
+    const router = useRouter()
+    const [error, setError] = useState<string | null>(null)
+    const [loading, setLoading] = useState(false)
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setError(null)
+        setLoading(true)
+
+        const formData = new FormData(e.currentTarget)
+        const email = formData.get('email') as string
+        const password = formData.get('password') as string
+
+        try {
+            // 1. Register user
+            const result = await register(formData)
+
+            if (result?.error) {
+                setError(result.error)
+                setLoading(false)
+                return
+            }
+
+            // 2. Login user
+            const signInResult = await signIn('credentials', {
+                email,
+                password,
+                redirect: false,
+            })
+
+            if (signInResult?.error) {
+                setError('Registration successful but failed to auto-login. Please login manually.')
+                setLoading(false)
+                router.push('/login')
+            } else {
+                router.push('/dashboard')
+                router.refresh()
+            }
+        } catch (error) {
+            setError('Something went wrong')
+            setLoading(false)
+        }
+    }
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
@@ -17,7 +61,7 @@ export default function RegisterPage() {
                         Create a new account
                     </h2>
                 </div>
-                <form action={dispatch} className="mt-8 space-y-6">
+                <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                     <div className="-space-y-px rounded-md shadow-sm space-y-4">
                         <div>
                             <label htmlFor="name" className="sr-only">
@@ -71,9 +115,9 @@ export default function RegisterPage() {
                         <Button
                             type="submit"
                             className="w-full"
-                            disabled={isPending}
+                            disabled={loading}
                         >
-                            {isPending ? 'Creating account...' : 'Register'}
+                            {loading ? 'Creating account...' : 'Register'}
                         </Button>
                     </div>
                     <div
@@ -81,8 +125,8 @@ export default function RegisterPage() {
                         aria-live="polite"
                         aria-atomic="true"
                     >
-                        {errorMessage && (
-                            <p className="text-sm text-red-500">{errorMessage}</p>
+                        {error && (
+                            <p className="text-sm text-red-500">{error}</p>
                         )}
                     </div>
                 </form>

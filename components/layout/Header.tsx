@@ -8,10 +8,13 @@ import { Input } from '@/components/ui/Input'
 import { Badge } from '@/components/ui/Badge'
 import { cn } from '@/lib/utils'
 import { useCart } from '@/lib/cart-context'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
+import { useLanguage } from '@/lib/language-context'
 
 export function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const { cartCount } = useCart()
+    const { t } = useLanguage()
 
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -33,23 +36,40 @@ export function Header() {
 
                     {/* Desktop Nav */}
                     <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-                        <Link href="/" className="text-foreground/60 transition-colors hover:text-foreground">Home</Link>
-                        <Link href="/shop" className="text-foreground/60 transition-colors hover:text-foreground">Shop</Link>
-                        <Link href="/categories" className="text-foreground/60 transition-colors hover:text-foreground">Categories</Link>
-                        <Link href="/about" className="text-foreground/60 transition-colors hover:text-foreground">About Us</Link>
+                        <Link href="/" className="text-foreground/60 transition-colors hover:text-foreground">{t('header.home')}</Link>
+                        <Link href="/shop" className="text-foreground/60 transition-colors hover:text-foreground">{t('header.shop')}</Link>
+                        {/* Categories link removed or translated if key exists, using 'shop.categories' as fallback or just generic Shop */}
+                        <Link href="/about" className="text-foreground/60 transition-colors hover:text-foreground">{t('header.about')}</Link>
                     </nav>
 
                     {/* Search Bar - Hidden on small mobile */}
                     <div className="hidden sm:flex flex-1 max-w-sm items-center relative">
-                        <Input
-                            placeholder="Search products..."
-                            className="pr-10"
-                        />
-                        <Search className="absolute right-3 h-4 w-4 text-muted-foreground" />
+                        <form
+                            className="w-full relative"
+                            onSubmit={(e) => {
+                                e.preventDefault()
+                                const form = e.target as HTMLFormElement
+                                const input = form.elements.namedItem('q') as HTMLInputElement
+                                if (input.value.trim()) {
+                                    window.location.href = `/shop?q=${encodeURIComponent(input.value.trim())}`
+                                }
+                            }}
+                        >
+                            <Input
+                                name="q"
+                                placeholder="Search products..."
+                                className="pr-10"
+                            />
+                            <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2">
+                                <Search className="h-4 w-4 text-muted-foreground" />
+                            </button>
+                        </form>
                     </div>
 
                     {/* User Actions */}
                     <div className="flex items-center gap-2 sm:gap-4">
+                        <LanguageSwitcher />
+
                         <Link href="/wishlist">
                             <Button variant="ghost" size="icon" className="hidden sm:flex text-muted-foreground">
                                 <Heart className="h-5 w-5" />
@@ -69,7 +89,7 @@ export function Header() {
                             </Button>
                         </Link>
 
-                        <Link href="/account">
+                        <Link href="/dashboard">
                             <Button variant="ghost" size="icon" className="text-muted-foreground">
                                 <User className="h-5 w-5" />
                                 <span className="sr-only">Account</span>
@@ -123,7 +143,7 @@ export function Header() {
                             Track Order
                         </Link>
                         <Link
-                            href="/account"
+                            href="/dashboard"
                             className="text-sm font-medium transition-colors hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
