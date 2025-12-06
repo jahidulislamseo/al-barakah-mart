@@ -106,6 +106,47 @@ export const translations = {
         'common.delete': 'Delete',
         'common.confirm': 'Confirm',
         'common.close': 'Close',
+
+        // Features
+        'features.fresh.title': '100% Organic & Fresh',
+        'features.fresh.desc': 'Directly from certified local farmers.',
+        'features.delivery.title': 'Fast Delivery',
+        'features.delivery.desc': 'Same day delivery in Dhaka city.',
+        'features.support.title': '24/7 Support',
+        'features.support.desc': 'Always here to help you.',
+        'features.secure.title': 'Secure Payment',
+        'features.secure.desc': '100% secure payment gateway.',
+
+        // Why Choose Us
+        'why.title': 'Why Choose Al Barakah Mart?',
+        'why.subtitle': 'We are committed to providing the best quality products for your family.',
+        'why.q1.title': 'Premium Quality',
+        'why.q1.desc': 'We never compromise on quality. Every product is carefully selected.',
+        'why.q2.title': 'Best Prices',
+        'why.q2.desc': 'Get the best market rates for organic and premium groceries.',
+        'why.q3.title': 'Easy Returns',
+        'why.q3.desc': 'Not satisfied? Return immediately at the time of delivery.',
+
+        // Special Offers
+        'offer.title': 'Special Offer',
+        'offer.subtitle': 'Get 20% off on your first order',
+        'offer.code': 'Use Code: WELCOME20',
+        'offer.cta': 'Shop Now',
+
+        // Testimonials
+        'testi.title': 'What Our Customers Say',
+        'testi.1.text': "The best organic grocery store in Dhaka! The vegetables are always fresh.",
+        'testi.1.author': 'Rahim Uddin',
+        'testi.2.text': "Fast delivery and excellent customer service. Highly recommended.",
+        'testi.2.author': 'Fatema Begum',
+        'testi.3.text': "I love their honey and dates collection. Premium quality indeed.",
+        'testi.3.author': 'Abdullah Al Mamun',
+
+        // Newsletter
+        'news.title': 'Join Our Newsletter',
+        'news.subtitle': 'Subscribe to get updates on new products and special offers.',
+        'news.placeholder': 'Enter your email address',
+        'news.button': 'Subscribe',
     },
 
     bn: {
@@ -129,6 +170,47 @@ export const translations = {
         'home.categories.title': 'ক্যাটাগরি অনুযায়ী কিনুন',
         'home.featured.title': 'বিশেষ পণ্য',
         'home.bestsellers.title': 'সেরা বিক্রিত',
+
+        // Features
+        'features.fresh.title': '১০০% তাজা এবং অর্গানিক',
+        'features.fresh.desc': 'সরাসরি স্থানীয় কৃষকদের থেকে সংগ্রহকৃত।',
+        'features.delivery.title': 'দ্রুত ডেলিভারি',
+        'features.delivery.desc': 'ঢাকা সিটির মধ্যে সেম ডে ডেলিভারি।',
+        'features.support.title': '২৪/৭ সাপোর্ট',
+        'features.support.desc': 'আমরা সর্বদা আপনার সেবায় নিয়োজিত।',
+        'features.secure.title': 'নিরাপদ পেমেন্ট',
+        'features.secure.desc': '১০০% নিরাপদ পেমেন্ট গেটওয়ে।',
+
+        // Why Choose Us
+        'why.title': 'কেন আল বারাকাহ মার্ট?',
+        'why.subtitle': 'আমরা আপনার পরিবারের জন্য সেরা মানের পণ্য সরবরাহ করতে প্রতিশ্রুতিবদ্ধ।',
+        'why.q1.title': 'প্রিমিয়াম কোয়ালিটি',
+        'why.q1.desc': 'আমরা মানের সাথে আপোষ করি না। প্রতিটি পণ্য যত্ন সহকারে বাছাই করা হয়।',
+        'why.q2.title': 'সেরা মূল্য',
+        'why.q2.desc': 'অর্গানিক এবং প্রিমিয়াম পণ্যের জন্য বাজারের সেরা রেট পান।',
+        'why.q3.title': 'সহজ রিটার্ন',
+        'why.q3.desc': 'পছন্দ হয়নি? ডেলিভারির সময়ই ফেরত দিন।',
+
+        // Special Offers
+        'offer.title': 'স্পেশাল অফার',
+        'offer.subtitle': 'প্রথম অর্ডারে পান ২০% ছাড়',
+        'offer.code': 'কোড ব্যবহার করুন: WELCOME20',
+        'offer.cta': 'শপ করুন',
+
+        // Testimonials
+        'testi.title': 'আমাদের গ্রাহকরা যা বলেন',
+        'testi.1.text': "ঢাকার সেরা অর্গানিক গ্রোসারি শপ! সবজিগুলো সবসময় তাজা থাকে।",
+        'testi.1.author': 'রহিম উদ্দিন',
+        'testi.2.text': "দ্রুত ডেলিভারি এবং চমৎকার কাস্টমার সার্ভিস। অত্যন্ত সুপারিশকৃত।",
+        'testi.2.author': 'ফাতেমা বেগম',
+        'testi.3.text': "তাদের মধু এবং খেজুরের কালেকশন আমার খুব প্রিয়। সত্যিই প্রিমিয়াম কোয়ালিটি।",
+        'testi.3.author': 'আব্দুল্লাহ আল মামুন',
+
+        // Newsletter
+        'news.title': 'নিউজলেটারে যোগ দিন',
+        'news.subtitle': 'নতুন পণ্য এবং অফারের আপডেট পেতে সাবস্ক্রাইব করুন।',
+        'news.placeholder': 'আপনার ইমেইল দিন',
+        'news.button': 'সাবস্ক্রাইব',
 
         // Shop Page
         'shop.title': 'তাজা মুদি কিনুন',
@@ -212,6 +294,47 @@ export const translations = {
         'common.delete': 'মুছুন',
         'common.confirm': 'নিশ্চিত করুন',
         'common.close': 'বন্ধ করুন',
+
+        // Features
+        'features.fresh.title': '১০০% তাজা এবং অর্গানিক',
+        'features.fresh.desc': 'সরাসরি স্থানীয় কৃষকদের থেকে সংগ্রহকৃত।',
+        'features.delivery.title': 'দ্রুত ডেলিভারি',
+        'features.delivery.desc': 'ঢাকা সিটির মধ্যে সেম ডে ডেলিভারি।',
+        'features.support.title': '২৪/৭ সাপোর্ট',
+        'features.support.desc': 'আমরা সর্বদা আপনার সেবায় নিয়োজিত।',
+        'features.secure.title': 'নিরাপদ পেমেন্ট',
+        'features.secure.desc': '১০০% নিরাপদ পেমেন্ট গেটওয়ে।',
+
+        // Why Choose Us
+        'why.title': 'কেন আল বারাকাহ মার্ট?',
+        'why.subtitle': 'আমরা আপনার পরিবারের জন্য সেরা মানের পণ্য সরবরাহ করতে প্রতিশ্রুতিবদ্ধ।',
+        'why.q1.title': 'প্রিমিয়াম কোয়ালিটি',
+        'why.q1.desc': 'আমরা মানের সাথে আপোষ করি না। প্রতিটি পণ্য যত্ন সহকারে বাছাই করা হয়।',
+        'why.q2.title': 'সেরা মূল্য',
+        'why.q2.desc': 'অর্গানিক এবং প্রিমিয়াম পণ্যের জন্য বাজারের সেরা রেট পান।',
+        'why.q3.title': 'সহজ রিটার্ন',
+        'why.q3.desc': 'পছন্দ হয়নি? ডেলিভারির সময়ই ফেরত দিন।',
+
+        // Special Offers
+        'offer.title': 'স্পেশাল অফার',
+        'offer.subtitle': 'প্রথম অর্ডারে পান ২০% ছাড়',
+        'offer.code': 'কোড ব্যবহার করুন: WELCOME20',
+        'offer.cta': 'শপ করুন',
+
+        // Testimonials
+        'testi.title': 'আমাদের গ্রাহকরা যা বলেন',
+        'testi.1.text': "ঢাকার সেরা অর্গানিক গ্রোসারি শপ! সবজিগুলো সবসময় তাজা থাকে।",
+        'testi.1.author': 'রহিম উদ্দিন',
+        'testi.2.text': "দ্রুত ডেলিভারি এবং চমৎকার কাস্টমার সার্ভিস। অত্যন্ত সুপারিশকৃত।",
+        'testi.2.author': 'ফাতেমা বেগম',
+        'testi.3.text': "তাদের মধু এবং খেজুরের কালেকশন আমার খুব প্রিয়। সত্যিই প্রিমিয়াম কোয়ালিটি।",
+        'testi.3.author': 'আব্দুল্লাহ আল মামুন',
+
+        // Newsletter
+        'news.title': 'নিউজলেটারে যোগ দিন',
+        'news.subtitle': 'নতুন পণ্য এবং অফারের আপডেট পেতে সাবস্ক্রাইব করুন।',
+        'news.placeholder': 'আপনার ইমেইল দিন',
+        'news.button': 'সাবস্ক্রাইব',
     }
 }
 
