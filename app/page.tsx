@@ -5,6 +5,9 @@ import { HeroSlideshow } from "@/components/layout/HeroSlideshow"
 import { prisma } from "@/lib/prisma"
 import { ArrowRight, CheckCircle, Truck, ShieldCheck, Leaf, Star, HelpCircle } from "lucide-react"
 
+export const dynamic = 'force-dynamic'
+
+
 async function getNewArrivals() {
   try {
     return await prisma.product.findMany({
