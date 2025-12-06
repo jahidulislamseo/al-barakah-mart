@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -22,8 +23,11 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+
   experimental: {
     // serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
+    serverActions: true,  // if using Server Actions
+    serverComponentsExternalPackages: ["@prisma/client", "bcryptjs"],
   },
 };
 
