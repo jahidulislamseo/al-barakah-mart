@@ -11,12 +11,19 @@ type ProductWithCategory = Prisma.ProductGetPayload<{
     include: { category: true }
 }>
 
+export const dynamic = 'force-dynamic'
+
 async function getProducts() {
-    const products = await prisma.product.findMany({
-        orderBy: { createdAt: 'desc' },
-        include: { category: true }
-    })
-    return products
+    try {
+        const products = await prisma.product.findMany({
+            orderBy: { createdAt: 'desc' },
+            include: { category: true }
+        })
+        return products
+    } catch (error) {
+        console.error('Failed to fetch products:', error)
+        return []
+    }
 }
 
 export default async function AdminProductsPage() {
