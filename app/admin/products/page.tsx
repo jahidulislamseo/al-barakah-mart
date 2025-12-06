@@ -5,6 +5,12 @@ import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
 import { Badge } from '@/components/ui/Badge'
 
+import { Prisma } from '@prisma/client'
+
+type ProductWithCategory = Prisma.ProductGetPayload<{
+    include: { category: true }
+}>
+
 async function getProducts() {
     const products = await prisma.product.findMany({
         orderBy: { createdAt: 'desc' },
@@ -40,7 +46,7 @@ export default async function AdminProductsPage() {
                         </tr>
                     </thead>
                     <tbody className="divide-y">
-                        {products.map((product: any) => (
+                        {products.map((product: ProductWithCategory) => (
                             <tr key={product.id} className="hover:bg-gray-50">
                                 <td className="px-4 py-3">
                                     <div className="h-10 w-10 bg-gray-100 rounded flex items-center justify-center text-lg">

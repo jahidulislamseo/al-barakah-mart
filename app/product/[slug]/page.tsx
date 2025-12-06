@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/Badge'
 import { prisma } from '@/lib/prisma'
 import { AddToCart } from './add-to-cart'
 import { ProductCard } from '@/components/ecommerce/ProductCard'
+import { Metadata } from 'next'
 
 async function getProduct(slug: string) {
     try {
@@ -16,6 +17,29 @@ async function getProduct(slug: string) {
         return product
     } catch (error) {
         return null
+    }
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params
+    const product = await getProduct(slug)
+
+    if (!product) {
+        return {
+            title: 'Product Not Found | Al Barakah Mart'
+        }
+    }
+
+    return {
+        title: `${product.title} | Al Barakah Mart`,
+        description: product.description?.substring(0, 160) || `Buy ${product.title} online at Al Barakah Mart. Fresh organic quality guaranteed.`,
+        openGraph: {
+            images: product.image ? [product.image] : [],
+            title: product.title,
+            description: product.description?.substring(0, 160),
+            url: `https://al-barakah-mart.vercel.app/product/${slug}`,
+            type: 'website'
+        }
     }
 }
 
