@@ -39,6 +39,7 @@ model Product {
   price         Float
   originalPrice Float?
   image         String
+  images        String[]    @default([])
   rating        Float       @default(0)
   reviewsCount  Int         @default(0)
   inStock       Boolean     @default(true)

@@ -1,6 +1,6 @@
 import { getSession } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
-import { ProfileForm } from './profile-form'
+import { ProfileContent } from '@/components/dashboard/ProfileContent'
 
 async function getUser(email: string) {
     const user = await prisma.user.findUnique({
@@ -23,11 +23,6 @@ export default async function ProfilePage() {
     if (!user) return null
 
     return (
-        <div className="space-y-6">
-            <h1 className="text-2xl font-bold">My Profile</h1>
-            <div className="bg-white p-6 rounded-lg border max-w-2xl">
-                <ProfileForm user={user} />
-            </div>
-        </div>
+        <ProfileContent user={user} />
     )
 }

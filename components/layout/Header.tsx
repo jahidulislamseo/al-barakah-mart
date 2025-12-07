@@ -119,35 +119,35 @@ export function Header() {
                             className="text-sm font-medium transition-colors hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Home
+                            {t('header.home')}
                         </Link>
                         <Link
                             href="/shop"
                             className="text-sm font-medium transition-colors hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Shop
+                            {t('header.shop')}
                         </Link>
                         <Link
                             href="/categories"
                             className="text-sm font-medium transition-colors hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Categories
+                            {t('header.about')}
                         </Link>
                         <Link
                             href="/track-order"
                             className="text-sm font-medium transition-colors hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Track Order
+                            {t('header.trackOrder')}
                         </Link>
                         <Link
                             href="/dashboard"
                             className="text-sm font-medium transition-colors hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            My Account
+                            {t('header.myAccount')}
                         </Link>
                         <Button
                             variant="ghost"
@@ -155,7 +155,7 @@ export function Header() {
                             className="w-full justify-start text-red-500 hover:text-red-600 hover:bg-red-50"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            <X className="mr-2 h-4 w-4" /> Close Menu
+                            <X className="mr-2 h-4 w-4" /> {t('header.closeMenu')}
                         </Button>
                     </nav>
                 </div>

@@ -38,13 +38,25 @@ export function ProductCard({ product }: ProductCardProps) {
             <Link href={`/product/${product.slug}`}>
                 <div className="aspect-square relative bg-muted/20 overflow-hidden">
                     {product.image ? (
-                        <Image
-                            src={product.image}
-                            alt={product.title}
-                            fill
-                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
+                        <>
+                            <Image
+                                src={product.image}
+                                alt={product.title}
+                                fill
+                                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                                className={`object-cover transition-all duration-500 ${(product as any).images?.length > 1 ? 'group-hover:opacity-0' : 'group-hover:scale-105'
+                                    }`}
+                            />
+                            {(product as any).images?.length > 1 && (
+                                <Image
+                                    src={(product as any).images[1]}
+                                    alt={`${product.title} - Alternate`}
+                                    fill
+                                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                                    className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-105"
+                                />
+                            )}
+                        </>
                     ) : (
                         <div className="absolute inset-0 flex items-center justify-center text-4xl bg-gray-100 text-gray-300">
                             📦

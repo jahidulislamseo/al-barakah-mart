@@ -7,9 +7,11 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import Link from 'next/link'
+import { useLanguage } from '@/lib/language-context'
 
 export default function RegisterPage() {
     const router = useRouter()
+    const { t } = useLanguage()
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(false)
 
@@ -58,26 +60,26 @@ export default function RegisterPage() {
             <div className="w-full max-w-md space-y-8">
                 <div>
                     <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-                        Create a new account
+                        {t('auth.register.title')}
                     </h2>
                 </div>
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                     <div className="-space-y-px rounded-md shadow-sm space-y-4">
                         <div>
                             <label htmlFor="name" className="sr-only">
-                                Full Name
+                                {t('auth.register.name')}
                             </label>
                             <Input
                                 id="name"
                                 name="name"
                                 type="text"
                                 required
-                                placeholder="Full Name"
+                                placeholder={t('auth.register.name')}
                             />
                         </div>
                         <div>
                             <label htmlFor="email-address" className="sr-only">
-                                Email address
+                                {t('auth.login.email')}
                             </label>
                             <Input
                                 id="email-address"
@@ -85,12 +87,12 @@ export default function RegisterPage() {
                                 type="email"
                                 autoComplete="email"
                                 required
-                                placeholder="Email address"
+                                placeholder={t('auth.login.email')}
                             />
                         </div>
                         <div>
                             <label htmlFor="password" className="sr-only">
-                                Password
+                                {t('auth.login.password')}
                             </label>
                             <Input
                                 id="password"
@@ -98,7 +100,7 @@ export default function RegisterPage() {
                                 type="password"
                                 autoComplete="new-password"
                                 required
-                                placeholder="Password"
+                                placeholder={t('auth.login.password')}
                             />
                         </div>
                     </div>
@@ -106,7 +108,7 @@ export default function RegisterPage() {
                     <div className="flex items-center justify-between">
                         <div className="text-sm">
                             <Link href="/login" className="font-medium text-primary hover:text-primary/90">
-                                Already have an account? Sign in
+                                {t('auth.register.hasAccount')} {t('auth.register.login')}
                             </Link>
                         </div>
                     </div>
@@ -117,7 +119,7 @@ export default function RegisterPage() {
                             className="w-full"
                             disabled={loading}
                         >
-                            {loading ? 'Creating account...' : 'Register'}
+                            {loading ? t('common.loading') : t('auth.register.submit')}
                         </Button>
                     </div>
                     <div

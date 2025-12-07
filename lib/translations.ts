@@ -15,20 +15,99 @@ export const translations = {
         'header.logout': 'Logout',
         'header.cart': 'Cart',
         'header.search': 'Search products...',
+        'header.trackOrder': 'Track Order',
+        'header.myAccount': 'My Account',
+        'header.closeMenu': 'Close Menu',
 
         // Homepage
         'home.hero.title': 'Fresh Organic Groceries',
         'home.hero.subtitle': 'Delivered to Your Doorstep',
         'home.hero.cta': 'Shop Now',
+
+        // Hero Slideshow
+        'hero.slide1.title': 'Fresh Organic Groceries',
+        'hero.slide1.subtitle': 'Delivered to You',
+        'hero.slide1.desc': 'Experience the best quality organic fruits and vegetables.',
+        'hero.slide2.title': 'Pure Organic Honey (Modhu)',
+        'hero.slide2.subtitle': '100% Natural',
+        'hero.slide2.desc': 'Sourced directly from the Sundarbans. Taste the authentic sweetness.',
+        'hero.slide3.title': 'Premium Molasses (Gur)',
+        'hero.slide3.subtitle': 'Date Palm Jaggery',
+        'hero.slide3.desc': 'Authentic Khejur Gur from Jessore. Finest quality guaranteed.',
+        'hero.slide4.title': 'Fast Delivery',
+        'hero.slide4.subtitle': 'To Your Doorstep',
+        'hero.slide4.desc': 'Same-day delivery available for orders before 12 PM.',
+        'hero.shopNow': 'Shop Now',
+        'hero.learnMore': 'Learn More',
+
         'home.categories.title': 'Shop by Category',
+        'home.categories.subtitle': 'Find everything you need in one place',
         'home.featured.title': 'Featured Products',
         'home.bestsellers.title': 'Best Sellers',
+        'home.viewAll': 'View All',
+
+        // Deal of Day
+        'deal.title': 'Deal of the Day',
+        'deal.subtitle': 'Grab it before it expires!',
+        'deal.days': 'Days',
+        'deal.hours': 'Hours',
+        'deal.mins': 'Mins',
+        'deal.secs': 'Secs',
+        'deal.shopNow': 'Shop Deal',
+
+        // Features
+        'features.fresh.title': '100% Fresh & Organic',
+        'features.fresh.desc': 'Sourced directly from local farmers.',
+        'features.delivery.title': 'Fast Delivery',
+        'features.delivery.desc': 'Same-day delivery within Dhaka City.',
+        'features.support.title': '24/7 Support',
+        'features.support.desc': 'We are always here to help you.',
+        'features.secure.title': 'Secure Payment',
+        'features.secure.desc': '100% secure payment gateway.',
+
+        // Why Choose Us
+        'why.title': 'Why Choose Al Barakah Mart?',
+        'why.subtitle': 'We are committed to providing the best quality products for your family.',
+        'why.q1.title': 'Premium Quality',
+        'why.q1.desc': 'We do not compromise on quality. Every product is carefully selected.',
+        'why.q2.title': 'Best Prices',
+        'why.q2.desc': 'Get the best market rates for organic and premium products.',
+        'why.q3.title': 'Easy Returns',
+        'why.q3.desc': "Didn't like it? Return it at the time of delivery.",
+
+        // Special Offers
+        'offer.title': 'Special Offer',
+        'offer.subtitle': 'Get 20% Off Your First Order',
+        'offer.code': 'Use Code: WELCOME20',
+        'offer.cta': 'Shop Now',
+
+        // Testimonials
+        'testi.title': 'What Our Customers Say',
+        'testi.1.text': "Best organic grocery shop in Dhaka! Vegetables are always fresh.",
+        'testi.1.author': 'Rahim Uddin',
+        'testi.2.text': "Fast delivery and excellent customer service. Highly recommended.",
+        'testi.2.author': 'Fatema Begum',
+        'testi.3.text': "I love their honey and dates collection. Truly premium quality.",
+        'testi.3.author': 'Abdullah Al Mamun',
+
+        // Newsletter
+        'news.title': 'Join Our Newsletter',
+        'news.subtitle': 'Subscribe to get updates on new products and offers.',
+        'news.placeholder': 'Enter your email',
+        'news.button': 'Subscribe',
 
         // Shop Page
         'shop.title': 'Shop Fresh Groceries',
         'shop.subtitle': 'Discover our wide selection of organic fruits, vegetables, and daily essentials',
         'shop.filters': 'Filters',
         'shop.categories': 'Categories',
+        'shop.category.fruits': 'Fruits & Vegetables',
+        'shop.category.meat': 'Meat & Fish',
+        'shop.category.beverages': 'Beverages',
+        'shop.category.snacks': 'Snacks',
+        'shop.category.dairy': 'Dairy',
+        'shop.category.personal': 'Personal Care',
+        'shop.category.grocery': 'Grocery',
         'shop.priceRange': 'Price Range',
         'shop.sortBy': 'Sort By',
         'shop.newest': 'Newest',
@@ -63,6 +142,9 @@ export const translations = {
         'cart.total': 'Total',
         'cart.checkout': 'Proceed to Checkout',
         'cart.remove': 'Remove',
+        'cart.summary': 'Order Summary',
+        'cart.tax': 'Tax',
+        'cart.empty.desc': "Looks like you haven't added anything yet.",
 
         // Dashboard
         'dashboard.orders': 'Orders',
@@ -95,6 +177,45 @@ export const translations = {
         'footer.privacy': 'Privacy Policy',
         'footer.terms': 'Terms & Conditions',
         'footer.copyright': '© 2025 Al Barakah Mart. All rights reserved.',
+        'footer.brand.desc': 'Your trusted online supermarket in Bangladesh. Fresh products, fast delivery, and premium service.',
+        'footer.quickLinks.title': 'Quick Links',
+        'footer.contact.title': 'Contact',
+        'footer.newsletter.title': 'Newsletter',
+        'footer.newsletter.desc': 'Subscribe to get updates on new arrivals and special offers.',
+        'footer.newsletter.placeholder': 'Email address',
+        'footer.newsletter.subscribe': 'Subscribe',
+        'footer.address': 'Dhaka, Bangladesh',
+        'footer.phone': '+880 1609132361',
+        'footer.email': 'opjahidulislam@gmail.com',
+
+        'checkout.title': 'Checkout',
+        'checkout.shipping': 'Shipping Details',
+        'checkout.firstName': 'First Name',
+        'checkout.lastName': 'Last Name',
+        'checkout.phone': 'Phone Number',
+        'checkout.address': 'Address',
+        'checkout.city': 'City',
+        'checkout.zip': 'Zip Code',
+        'checkout.payment': 'Payment Method',
+        'checkout.payment.bkash': 'bKash',
+        'checkout.payment.nagad': 'Nagad',
+        'checkout.payment.cod': 'Cash on Delivery',
+        'checkout.payWith': 'Pay with',
+        'checkout.howToPay': 'How to Pay via',
+        'checkout.total': 'Total Amount',
+        'checkout.placeOrder': 'Place Order',
+        'checkout.processing': 'Processing...',
+        'checkout.success.title': 'Order Placed Successfully!',
+        'checkout.success.desc': 'Thank you for your order. You will receive a confirmation email shortly.',
+        'checkout.viewOrder': 'View Order History',
+        'checkout.empty': 'Cart is empty. Redirecting...',
+        'checkout.instruction.dial': 'Go to your Mobile Menu by dialing',
+        'checkout.instruction.choose': 'Choose "Send Money"',
+        'checkout.instruction.enter': 'Enter Account Number',
+        'checkout.instruction.amount': 'Enter amount',
+        'checkout.instruction.ref': 'Enter Reference',
+        'checkout.instruction.pin': 'Enter PIN to confirm',
+        'checkout.trxid': 'Enter Transaction ID',
 
         // Common
         'common.loading': 'Loading...',
@@ -107,46 +228,7 @@ export const translations = {
         'common.confirm': 'Confirm',
         'common.close': 'Close',
 
-        // Features
-        'features.fresh.title': '100% Organic & Fresh',
-        'features.fresh.desc': 'Directly from certified local farmers.',
-        'features.delivery.title': 'Fast Delivery',
-        'features.delivery.desc': 'Same day delivery in Dhaka city.',
-        'features.support.title': '24/7 Support',
-        'features.support.desc': 'Always here to help you.',
-        'features.secure.title': 'Secure Payment',
-        'features.secure.desc': '100% secure payment gateway.',
 
-        // Why Choose Us
-        'why.title': 'Why Choose Al Barakah Mart?',
-        'why.subtitle': 'We are committed to providing the best quality products for your family.',
-        'why.q1.title': 'Premium Quality',
-        'why.q1.desc': 'We never compromise on quality. Every product is carefully selected.',
-        'why.q2.title': 'Best Prices',
-        'why.q2.desc': 'Get the best market rates for organic and premium groceries.',
-        'why.q3.title': 'Easy Returns',
-        'why.q3.desc': 'Not satisfied? Return immediately at the time of delivery.',
-
-        // Special Offers
-        'offer.title': 'Special Offer',
-        'offer.subtitle': 'Get 20% off on your first order',
-        'offer.code': 'Use Code: WELCOME20',
-        'offer.cta': 'Shop Now',
-
-        // Testimonials
-        'testi.title': 'What Our Customers Say',
-        'testi.1.text': "The best organic grocery store in Dhaka! The vegetables are always fresh.",
-        'testi.1.author': 'Rahim Uddin',
-        'testi.2.text': "Fast delivery and excellent customer service. Highly recommended.",
-        'testi.2.author': 'Fatema Begum',
-        'testi.3.text': "I love their honey and dates collection. Premium quality indeed.",
-        'testi.3.author': 'Abdullah Al Mamun',
-
-        // Newsletter
-        'news.title': 'Join Our Newsletter',
-        'news.subtitle': 'Subscribe to get updates on new products and special offers.',
-        'news.placeholder': 'Enter your email address',
-        'news.button': 'Subscribe',
     },
 
     bn: {
@@ -162,14 +244,62 @@ export const translations = {
         'header.logout': 'লগআউট',
         'header.cart': 'কার্ট',
         'header.search': 'পণ্য খুঁজুন...',
+        'header.trackOrder': 'অর্ডার ট্র্যাক করুন',
+        'header.myAccount': 'আমার অ্যাকাউন্ট',
+        'header.closeMenu': 'মেনু বন্ধ করুন',
+
+        // Footer
+        'footer.about': 'আমাদের সম্পর্কে',
+        'footer.contact': 'যোগাযোগ করুন',
+        'footer.privacy': 'গোপনীয়তা নীতি',
+        'footer.terms': 'শর্তাবলী',
+        'footer.copyright': '© ২০২৫ আল বারাকাহ মার্ট। সর্বস্বত্ব সংরক্ষিত।',
+        'footer.brand.desc': 'বাংলাদেশে আপনার বিশ্বস্ত অনলাইন সুপারমার্কেট। তাজা পণ্য, দ্রুত ডেলিভারি এবং প্রিমিয়াম পরিষেবা।',
+        'footer.quickLinks.title': 'কুইক লিংক',
+        'footer.contact.title': 'যোগাযোগ',
+        'footer.newsletter.title': 'নিউজলেটার',
+        'footer.newsletter.desc': 'নতুন পণ্য এবং অফারের আপডেট পেতে সাবস্ক্রাইব করুন।',
+        'footer.newsletter.placeholder': 'ইমেইল ঠিকানা',
+        'footer.newsletter.subscribe': 'সাবস্ক্রাইব',
+        'footer.address': 'ঢাকা, বাংলাদেশ',
+        'footer.phone': '+৮৮০ ১৬০৯১৩২৩৬১',
+        'footer.email': 'opjahidulislam@gmail.com',
 
         // Homepage
         'home.hero.title': 'তাজা জৈব মুদি',
         'home.hero.subtitle': 'আপনার দোরগোড়ায় পৌঁছে দেওয়া হয়',
         'home.hero.cta': 'এখনই কিনুন',
+
+        // Hero Slideshow
+        'hero.slide1.title': 'তাজা জৈব মুদি',
+        'hero.slide1.subtitle': 'আপনার দোরগোড়ায়',
+        'hero.slide1.desc': 'সেরা মানের জৈব ফল এবং সবজির অভিজ্ঞতা নিন।',
+        'hero.slide2.title': 'খাঁটি প্রাকৃতিক মধু',
+        'hero.slide2.subtitle': '১০০% প্রাকৃতিক',
+        'hero.slide2.desc': 'সরাসরি সুন্দরবন থেকে সংগ্রহকৃত। আসল স্বাদের নিশ্চয়তা।',
+        'hero.slide3.title': 'প্রিমিয়াম খেজুরের গুড়',
+        'hero.slide3.subtitle': 'খাঁটি পাটালি গুড়',
+        'hero.slide3.desc': 'যশোরের বিখ্যাত খেজুরের গুড়। সেরা মানের গ্যারান্টি।',
+        'hero.slide4.title': 'দ্রুত ডেলিভারি',
+        'hero.slide4.subtitle': 'আপনার দরজায়',
+        'hero.slide4.desc': 'দুপুর ১২টার আগে অর্ডার করলে একই দিনে ডেলিভারি।',
+        'hero.shopNow': 'এখন কিনুন',
+        'hero.learnMore': 'আরও জানুন',
+
         'home.categories.title': 'ক্যাটাগরি অনুযায়ী কিনুন',
+        'home.categories.subtitle': 'আপনার প্রয়োজনীয় সবকিছু এক জায়গায় খুঁজুন',
         'home.featured.title': 'বিশেষ পণ্য',
         'home.bestsellers.title': 'সেরা বিক্রিত',
+        'home.viewAll': 'সব দেখুন',
+
+        // Deal of Day
+        'deal.title': 'আজকের সেরা অফার',
+        'deal.subtitle': 'মেয়াদ শেষ হওয়ার আগেই লুফে নিন!',
+        'deal.days': 'দিন',
+        'deal.hours': 'ঘণ্টা',
+        'deal.mins': 'মিনিট',
+        'deal.secs': 'সেকেন্ড',
+        'deal.shopNow': 'ডিল দেখুন',
 
         // Features
         'features.fresh.title': '১০০% তাজা এবং অর্গানিক',
@@ -217,6 +347,13 @@ export const translations = {
         'shop.subtitle': 'জৈব ফল, সবজি এবং দৈনন্দিন প্রয়োজনীয় পণ্যের বিশাল সংগ্রহ আবিষ্কার করুন',
         'shop.filters': 'ফিল্টার',
         'shop.categories': 'ক্যাটাগরি',
+        'shop.category.fruits': 'ফল ও শাকসবজি',
+        'shop.category.meat': 'মাংস ও মাছ',
+        'shop.category.beverages': 'পানীয়',
+        'shop.category.snacks': 'স্ন্যাকস',
+        'shop.category.dairy': 'দুগ্ধজাত পণ্য',
+        'shop.category.personal': 'ব্যক্তিগত যত্ন',
+        'shop.category.grocery': 'মুদি',
         'shop.priceRange': 'মূল্য পরিসীমা',
         'shop.sortBy': 'সাজান',
         'shop.newest': 'নতুন',
@@ -242,6 +379,35 @@ export const translations = {
         'product.loginToReview': 'রিভিউ লিখতে লগইন করুন।',
         'product.noReviews': 'এখনও কোন রিভিউ নেই। প্রথম রিভিউ লিখুন!',
 
+        'checkout.title': 'চেকআউট',
+        'checkout.shipping': 'শিপিং তথ্য',
+        'checkout.firstName': 'নামের প্রথম অংশ',
+        'checkout.lastName': 'নামের শেষ অংশ',
+        'checkout.phone': 'ফোন নম্বর',
+        'checkout.address': 'ঠিকানা',
+        'checkout.city': 'শহর',
+        'checkout.zip': 'জিপ কোড',
+        'checkout.payment': 'পেমেন্ট পদ্ধতি',
+        'checkout.payment.bkash': 'বিকাশ',
+        'checkout.payment.nagad': 'নগদ',
+        'checkout.payment.cod': 'ক্যাশ অন ডেলিভারি',
+        'checkout.payWith': 'পেমেন্ট করুন',
+        'checkout.howToPay': 'কিভাবে পেমেন্ট করবেন',
+        'checkout.total': 'মোট পরিমাণ',
+        'checkout.placeOrder': 'অর্ডার করুন',
+        'checkout.processing': 'প্রসেসিং...',
+        'checkout.success.title': 'অর্ডার সফলভাবে সম্পন্ন হয়েছে!',
+        'checkout.success.desc': 'আপনার অর্ডারের জন্য ধন্যবাদ। আপনি শীঘ্রই একটি কনফার্মেশন ইমেইল পাবেন।',
+        'checkout.viewOrder': 'অর্ডার ইতিহাস দেখুন',
+        'checkout.empty': 'কার্ট খালি। রিডাইরেক্ট করা হচ্ছে...',
+        'checkout.instruction.dial': 'আপনার মোবাইল মেনুতে ডায়াল করুন',
+        'checkout.instruction.choose': '"Send Money" সিলেক্ট করুন',
+        'checkout.instruction.enter': 'অ্যাকাউন্ট নম্বর লিখুন',
+        'checkout.instruction.amount': 'টাকার পরিমাণ লিখুন',
+        'checkout.instruction.ref': 'রেফারেন্স লিখুন',
+        'checkout.instruction.pin': 'PIN দিয়ে নিশ্চিত করুন',
+        'checkout.trxid': 'ট্রানজেকশন আইডি লিখুন',
+
         // Cart
         'cart.title': 'শপিং কার্ট',
         'cart.empty': 'আপনার কার্ট খালি',
@@ -251,6 +417,9 @@ export const translations = {
         'cart.total': 'মোট',
         'cart.checkout': 'চেকআউট করুন',
         'cart.remove': 'সরান',
+        'cart.summary': 'অর্ডার সারাংশ',
+        'cart.tax': 'ভ্যাট',
+        'cart.empty.desc': 'মনে হচ্ছে আপনি এখনও কিছু যোগ করেননি।',
 
         // Dashboard
         'dashboard.orders': 'অর্ডার',
@@ -277,13 +446,6 @@ export const translations = {
         'auth.register.hasAccount': 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?',
         'auth.register.login': 'এখানে লগইন করুন',
 
-        // Footer
-        'footer.about': 'আমাদের সম্পর্কে',
-        'footer.contact': 'যোগাযোগ করুন',
-        'footer.privacy': 'গোপনীয়তা নীতি',
-        'footer.terms': 'শর্তাবলী',
-        'footer.copyright': '© ২০২৫ আল বারাকাহ মার্ট। সর্বস্বত্ব সংরক্ষিত।',
-
         // Common
         'common.loading': 'লোড হচ্ছে...',
         'common.error': 'ত্রুটি',
@@ -295,46 +457,6 @@ export const translations = {
         'common.confirm': 'নিশ্চিত করুন',
         'common.close': 'বন্ধ করুন',
 
-        // Features
-        'features.fresh.title': '১০০% তাজা এবং অর্গানিক',
-        'features.fresh.desc': 'সরাসরি স্থানীয় কৃষকদের থেকে সংগ্রহকৃত।',
-        'features.delivery.title': 'দ্রুত ডেলিভারি',
-        'features.delivery.desc': 'ঢাকা সিটির মধ্যে সেম ডে ডেলিভারি।',
-        'features.support.title': '২৪/৭ সাপোর্ট',
-        'features.support.desc': 'আমরা সর্বদা আপনার সেবায় নিয়োজিত।',
-        'features.secure.title': 'নিরাপদ পেমেন্ট',
-        'features.secure.desc': '১০০% নিরাপদ পেমেন্ট গেটওয়ে।',
-
-        // Why Choose Us
-        'why.title': 'কেন আল বারাকাহ মার্ট?',
-        'why.subtitle': 'আমরা আপনার পরিবারের জন্য সেরা মানের পণ্য সরবরাহ করতে প্রতিশ্রুতিবদ্ধ।',
-        'why.q1.title': 'প্রিমিয়াম কোয়ালিটি',
-        'why.q1.desc': 'আমরা মানের সাথে আপোষ করি না। প্রতিটি পণ্য যত্ন সহকারে বাছাই করা হয়।',
-        'why.q2.title': 'সেরা মূল্য',
-        'why.q2.desc': 'অর্গানিক এবং প্রিমিয়াম পণ্যের জন্য বাজারের সেরা রেট পান।',
-        'why.q3.title': 'সহজ রিটার্ন',
-        'why.q3.desc': 'পছন্দ হয়নি? ডেলিভারির সময়ই ফেরত দিন।',
-
-        // Special Offers
-        'offer.title': 'স্পেশাল অফার',
-        'offer.subtitle': 'প্রথম অর্ডারে পান ২০% ছাড়',
-        'offer.code': 'কোড ব্যবহার করুন: WELCOME20',
-        'offer.cta': 'শপ করুন',
-
-        // Testimonials
-        'testi.title': 'আমাদের গ্রাহকরা যা বলেন',
-        'testi.1.text': "ঢাকার সেরা অর্গানিক গ্রোসারি শপ! সবজিগুলো সবসময় তাজা থাকে।",
-        'testi.1.author': 'রহিম উদ্দিন',
-        'testi.2.text': "দ্রুত ডেলিভারি এবং চমৎকার কাস্টমার সার্ভিস। অত্যন্ত সুপারিশকৃত।",
-        'testi.2.author': 'ফাতেমা বেগম',
-        'testi.3.text': "তাদের মধু এবং খেজুরের কালেকশন আমার খুব প্রিয়। সত্যিই প্রিমিয়াম কোয়ালিটি।",
-        'testi.3.author': 'আব্দুল্লাহ আল মামুন',
-
-        // Newsletter
-        'news.title': 'নিউজলেটারে যোগ দিন',
-        'news.subtitle': 'নতুন পণ্য এবং অফারের আপডেট পেতে সাবস্ক্রাইব করুন।',
-        'news.placeholder': 'আপনার ইমেইল দিন',
-        'news.button': 'সাবস্ক্রাইব',
     }
 }
 

@@ -5,17 +5,19 @@ import Image from 'next/image'
 import { Trash2, Plus, Minus, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { useCart } from '@/lib/cart-context'
+import { useLanguage } from '@/lib/language-context'
 
 export default function CartPage() {
     const { items, updateQuantity, removeItem, cartTotal } = useCart()
+    const { t } = useLanguage()
 
     if (items.length === 0) {
         return (
             <div className="container mx-auto px-4 py-24 text-center">
-                <h1 className="text-3xl font-bold mb-4">Your Cart is Empty</h1>
-                <p className="text-muted-foreground mb-8">Looks like you haven't added anything yet.</p>
+                <h1 className="text-3xl font-bold mb-4">{t('cart.empty')}</h1>
+                <p className="text-muted-foreground mb-8">{t('cart.empty.desc')}</p>
                 <Link href="/shop">
-                    <Button size="lg">Start Shopping</Button>
+                    <Button size="lg">{t('dashboard.startShopping')}</Button>
                 </Link>
             </div>
         )
@@ -23,7 +25,7 @@ export default function CartPage() {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
+            <h1 className="text-3xl font-bold mb-8">{t('cart.title')}</h1>
 
             <div className="grid lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 space-y-4">
@@ -70,7 +72,7 @@ export default function CartPage() {
                                     className="text-red-500 text-sm hover:underline flex items-center gap-1"
                                     onClick={() => removeItem(item.id)}
                                 >
-                                    <Trash2 className="h-3 w-3" /> Remove
+                                    <Trash2 className="h-3 w-3" /> {t('cart.remove')}
                                 </button>
                             </div>
                         </div>
@@ -79,31 +81,31 @@ export default function CartPage() {
 
                 <div className="lg:col-span-1">
                     <div className="border rounded-lg p-6 bg-card sticky top-24">
-                        <h2 className="text-xl font-bold mb-4">Order Summary</h2>
+                        <h2 className="text-xl font-bold mb-4">{t('cart.summary')}</h2>
 
                         <div className="space-y-2 text-sm mb-4 border-b pb-4">
                             <div className="flex justify-between">
-                                <span className="text-muted-foreground">Subtotal</span>
+                                <span className="text-muted-foreground">{t('cart.subtotal')}</span>
                                 <span>৳{cartTotal}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-muted-foreground">Delivery Charge</span>
+                                <span className="text-muted-foreground">{t('cart.shipping')}</span>
                                 <span>৳60</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-muted-foreground">Tax (5%)</span>
+                                <span className="text-muted-foreground">{t('cart.tax')} (5%)</span>
                                 <span>৳{Math.round(cartTotal * 0.05)}</span>
                             </div>
                         </div>
 
                         <div className="flex justify-between font-bold text-lg mb-6">
-                            <span>Total</span>
+                            <span>{t('cart.total')}</span>
                             <span>৳{cartTotal + 60 + Math.round(cartTotal * 0.05)}</span>
                         </div>
 
                         <Link href="/checkout">
                             <Button className="w-full" size="lg">
-                                Proceed to Checkout <ArrowRight className="ml-2 h-4 w-4" />
+                                {t('cart.checkout')} <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
                     </div>

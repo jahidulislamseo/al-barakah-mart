@@ -39,7 +39,11 @@ const productsWithSEO = [
 আজই অর্ডার করুন এবং তাজা, পুষ্টিকর টমেটো উপভোগ করুন। আল বারাকাহ মার্ট - আপনার বিশ্বস্ত জৈব মুদি দোকান।`,
         price: 60,
         originalPrice: 80,
-        image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&q=80',
+        image: '/images/products/tomatoes-1.png',
+        images: [
+            '/images/products/tomatoes-1.png',
+            '/images/products/tomatoes-2.png'
+        ],
         rating: 4.5,
         reviewsCount: 45,
         inStock: true,
@@ -76,7 +80,11 @@ const productsWithSEO = [
 স্বাস্থ্যকর জীবনযাপনের জন্য জৈব আলু বেছে নিন। আজই অর্ডার করুন এবং পার্থক্য অনুভব করুন।`,
         price: 40,
         originalPrice: 50,
-        image: 'https://images.unsplash.com/photo-1596910547037-846b1980329f?w=400&q=80',
+        image: '/images/products/potatoes-1.png',
+        images: [
+            '/images/products/potatoes-1.png',
+            '/images/products/potatoes-2.png'
+        ],
         rating: 4.7,
         reviewsCount: 67,
         inStock: true,
@@ -119,7 +127,11 @@ const productsWithSEO = [
 আজই অর্ডার করুন এবং তাজা পেঁয়াজের স্বাদ উপভোগ করুন।`,
         price: 50,
         originalPrice: 65,
-        image: 'https://images.unsplash.com/photo-1618512496640-b3db423da600?w=400&q=80',
+        image: '/images/products/onions-1.png',
+        images: [
+            '/images/products/onions-1.png',
+            '/images/products/onions-2.png'
+        ],
         rating: 4.3,
         reviewsCount: 34,
         inStock: true,
@@ -167,13 +179,127 @@ const productsWithSEO = [
 স্বাস্থ্যকর জীবনের জন্য তাজা গাজর বেছে নিন। আজই অর্ডার করুন!`,
         price: 70,
         originalPrice: 90,
-        image: 'https://images.unsplash.com/photo-1582515073490-39981397c445?w=400&q=80',
+        image: '/images/products/carrots-1.png',
+        images: [
+            '/images/products/carrots-1.png',
+            '/images/products/carrots-2.png'
+        ],
         rating: 4.6,
         reviewsCount: 52,
         inStock: true,
         isNew: true,
         isBestSeller: false,
         categorySlug: 'vegetables'
+        ,
+    // Meat & Fish
+    {
+        title: 'প্রিমিয়াম গরুর মাংস (Premium Beef)',
+        slug: 'premium-beef',
+        description: 'তাজা এবং হালাল গরুর মাংস। আমাদের মাংস সম্পূর্ণ চর্বিহীন এবং হাড় ছাড়া (অপশনাল)। সুস্বাদু গরুর ভুনার জন্য আদর্শ।',
+        price: 750,
+        originalPrice: 800,
+        image: '/images/products/beef-1.png',
+        images: ['/images/products/beef-1.png', '/images/products/beef-2.png'],
+        rating: 4.8,
+        reviewsCount: 120,
+        inStock: true,
+        isNew: true,
+        isBestSeller: true,
+        categorySlug: 'meat-fish'
+    },
+    {
+        title: 'দেশী মুরগি (Deshi Chicken)',
+        slug: 'deshi-chicken',
+        description: 'গ্রামের তাজা দেশী মুরগি। স্বাস্থ্যকর এবং পুষ্টিকর। কোনো অ্যান্টিবায়োটিক ব্যবহার করা হয়নি।',
+        price: 550,
+        originalPrice: 600,
+        image: '/images/products/chicken-1.png',
+        images: ['/images/products/chicken-1.png', '/images/products/chicken-2.png'],
+        rating: 4.7,
+        reviewsCount: 85,
+        inStock: true,
+        isNew: false,
+        isBestSeller: true,
+        categorySlug: 'meat-fish'
+    },
+    {
+        title: 'পদ্মার ইলিশ (Padma Hilsa)',
+        slug: 'padma-hilsa',
+        description: 'আসল পদ্মার ইলিশ। ১ কেজি সাইজ। সেরা মানের ইলিশ মাছ।',
+        price: 1500,
+        originalPrice: 1800,
+        image: '/images/products/fish-1.png',
+        images: ['/images/products/fish-1.png', '/images/products/fish-2.png'],
+        rating: 4.9,
+        reviewsCount: 200,
+        inStock: true,
+        isNew: true,
+        isBestSeller: true,
+        categorySlug: 'meat-fish'
+    },
+    // Dairy
+    {
+        title: 'খাঁটি গরুর দুধ (Fresh Milk)',
+        slug: 'fresh-milk',
+        description: 'খামারের তাজা গরুর দুধ। কোনো প্রিজারভেটিভ নেই।',
+        price: 90,
+        originalPrice: 100,
+        image: '/images/products/milk-1.png',
+        images: ['/images/products/milk-1.png', '/images/products/milk-2.png'],
+        rating: 4.6,
+        reviewsCount: 50,
+        inStock: true,
+        isNew: false,
+        isBestSeller: true,
+        categorySlug: 'dairy'
+    },
+    // Beverages
+    {
+        title: 'তাজা ফলের রস (Fresh Juice)',
+        slug: 'fresh-juice',
+        description: '১০০% প্রাকৃতিক ফলের রস। কোনো চিনি যোগ করা হয়নি।',
+        price: 120,
+        originalPrice: 150,
+        image: '/images/products/juice-1.png',
+        images: ['/images/products/juice-1.png', '/images/products/juice-2.png'],
+        rating: 4.5,
+        reviewsCount: 40,
+        inStock: true,
+        isNew: true,
+        isBestSeller: false,
+        categorySlug: 'beverages'
+    },
+    // Snacks
+    {
+        title: 'আলুর চিপস (Potato Chips)',
+        slug: 'potato-chips',
+        description: 'মুচমুচে আলুর চিপস। বিকেলের নাস্তার জন্য দারুণ।',
+        price: 20,
+        originalPrice: 25,
+        image: '/images/products/chips-1.png',
+        images: ['/images/products/chips-1.png', '/images/products/chips-2.png'],
+        rating: 4.4,
+        reviewsCount: 30,
+        inStock: true,
+        isNew: false,
+        isBestSeller: false,
+        categorySlug: 'snacks'
+    },
+    // Personal Care
+    {
+        title: 'হার্বাল শ্যাম্পু (Herbal Shampoo)',
+        slug: 'herbal-shampoo',
+        description: 'প্রাকৃতিক উপাদানে তৈরি হার্বাল শ্যাম্পু। চুল পড়া রোধ করে।',
+        price: 350,
+        originalPrice: 400,
+        image: '/images/products/shampoo-1.png',
+        images: ['/images/products/shampoo-1.png', '/images/products/shampoo-2.png'],
+        rating: 4.7,
+        reviewsCount: 60,
+        inStock: true,
+        isNew: true,
+        isBestSeller: true,
+        categorySlug: 'personal-care'
     }
 ];
 
@@ -202,9 +328,10 @@ export async function GET() {
                         description: product.description,
                         price: product.price,
                         originalPrice: product.originalPrice,
+                        images: (product as any).images,
                         rating: product.rating,
                         reviewsCount: product.reviewsCount
-                    },
+                    } as any,
                     create: {
                         title: product.title,
                         slug: product.slug,
@@ -212,13 +339,14 @@ export async function GET() {
                         price: product.price,
                         originalPrice: product.originalPrice,
                         image: product.image,
+                        images: (product as any).images,
                         rating: product.rating,
                         reviewsCount: product.reviewsCount,
                         inStock: product.inStock,
                         isNew: product.isNew,
                         isBestSeller: product.isBestSeller,
                         categoryId: category.id
-                    }
+                    } as any
                 });
                 createdCount++;
             }

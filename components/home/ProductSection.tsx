@@ -36,7 +36,7 @@ export function ProductSection({ titleKey, subTitleKey, products, bgGray = false
                         href="/shop"
                         className="text-green-600 font-medium hover:underline flex items-center bg-green-50 px-4 py-2 rounded-full hover:bg-green-100 transition-colors"
                     >
-                        {t('product.backToShop')} <ArrowRight className="ml-1 h-4 w-4" />
+                        {t('home.viewAll')} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                 </div>
 

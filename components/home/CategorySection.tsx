@@ -19,10 +19,10 @@ export function CategorySection({ categories }: CategorySectionProps) {
                         <h2 className="text-3xl font-bold mb-2">
                             {t('home.categories.title')}
                         </h2>
-                        <p className="text-muted-foreground">Find everything you need in one place</p>
+                        <p className="text-muted-foreground">{t('home.categories.subtitle')}</p>
                     </div>
                     <Link href="/categories" className="text-green-600 font-medium hover:underline flex items-center">
-                        View All <ArrowRight className="ml-1 h-4 w-4" />
+                        {t('home.viewAll')} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
