@@ -1,0 +1,30 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: true,
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'placehold.co',
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+            },
+        ],
+        dangerouslyAllowSVG: true,
+        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    },
+    experimental: {
+        serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
+    },
+};
+
+export default nextConfig;
