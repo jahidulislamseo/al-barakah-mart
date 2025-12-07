@@ -190,7 +190,7 @@ const productsWithSEO = [
         isNew: true,
         isBestSeller: false,
         categorySlug: 'vegetables'
-        ,
+    },
     // Meat & Fish
     {
         title: 'প্রিমিয়াম গরুর মাংস (Premium Beef)',
